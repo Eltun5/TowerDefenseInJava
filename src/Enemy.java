@@ -3,7 +3,7 @@ public class Enemy {
     private AliveTypes aliveTypes;
     private int speed;
     private int Hp;
-    private double AttackDamage;
+    private double attackDamage;
     private int bulletSpeed;
     private String img;
 
@@ -52,11 +52,11 @@ public class Enemy {
     }
 
     public double getAttackDamage() {
-        return AttackDamage;
+        return attackDamage;
     }
 
     public void setAttackDamage(double attackDamage) {
-        AttackDamage = attackDamage;
+        this.attackDamage = attackDamage;
     }
 
     public int getBulletSpeed() {
