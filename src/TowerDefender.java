@@ -34,11 +34,11 @@ public class TowerDefender {
     }
 
     public int getSpeed() {
-        return speed;
+        return attackSpeed;
     }
 
     public void setSpeed(int speed) {
-        this.speed = speed;
+        this.attackSpeed = attackSpeed;
     }
 
     public double getAttackDamage() {

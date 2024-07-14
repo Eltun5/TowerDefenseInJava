@@ -1,5 +1,5 @@
 public class Tower {
-    private static int healthPoint=100;
+     static double healthPoint=100;
     static Enemy[][] enemies=new Enemy[15][5];
     static TowerDefender[][] defenders=new TowerDefender[3][5];
     static String[][] tower=new String[18][5];
