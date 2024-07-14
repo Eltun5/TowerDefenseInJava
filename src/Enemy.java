@@ -1,6 +1,5 @@
 public class Enemy {
-<<<<<<< HEAD
-=======
+
     private AliveTypes aliveTypes;
     private int speed;
     private int Hp;
@@ -67,5 +66,4 @@ public class Enemy {
     public void setBulletSpeed(int bulletSpeed) {
         this.bulletSpeed = bulletSpeed;
     }
->>>>>>> 5499546 (First commit)
 }
