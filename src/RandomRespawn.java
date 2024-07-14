@@ -6,7 +6,8 @@ public class RandomRespawn {
             do {
                 a=(int)(Math.random()*5);
             }while (Tower.enemies[0][a]!=null);
-            Tower.enemies[0][a]=new Enemy();
+            int hp= (int) (Math.random() * rate) + 100;
+            Tower.enemies[0][a]=new Enemy(1,hp,20);
         }
         callTime++;
         if (callTime%10==0){

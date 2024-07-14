@@ -11,11 +11,10 @@ public class Enemy {
       Img();
     }
 
-    public Enemy(int speed, int hp, double attackDamage, int bulletSpeed) {
+    public Enemy(int speed, int hp, double attackDamage) {
         this.speed = speed;
         Hp = hp;
         this.attackDamage = attackDamage;
-        this.bulletSpeed = bulletSpeed;
         Img();
     }
 public void  Img() {
