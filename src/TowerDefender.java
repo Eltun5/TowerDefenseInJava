@@ -1,21 +1,28 @@
 public class TowerDefender {
 
-    private AliveTypes aliveTypes;
-    private int attackSpeed;
-    private double attackDamage;
-    private int bulletSpeed;
+    private AliveTypes aliveTypes=AliveTypes.ARCHER;
+    private int attackSpeed=1;
+    private double attackDamage=10;
     private String img;
-
+private int level=1;
     public TowerDefender() {
         if(aliveTypes==AliveTypes.KNIGHT) {
-            setImg(" \uD83D\uDD35");
+            setImg("\uD83D\uDD35");
         }
         else if(aliveTypes==AliveTypes.WIZARD) {
-            setImg(" \uD83C\uDF00");
+            setImg("\uD83C\uDF00");
         }
         else {
-            setImg(" \uD83E\uDD68");
+            setImg("\uD83E\uDD68");
         }
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
     }
 
     public AliveTypes getAliveTypes() {
@@ -50,11 +57,4 @@ public class TowerDefender {
         this.attackDamage = attackDamage;
     }
 
-    public int getBulletSpeed() {
-        return bulletSpeed;
-    }
-
-    public void setBulletSpeed(int bulletSpeed) {
-        this.bulletSpeed = bulletSpeed;
-    }
 }
