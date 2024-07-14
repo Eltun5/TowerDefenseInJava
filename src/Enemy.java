@@ -5,7 +5,7 @@ public class Enemy {
     private int Hp=100;
     private double attackDamage=20;
     private int bulletSpeed=50;
-    private String img;
+    private String img="c ";
 
     public Enemy() {
       Img();

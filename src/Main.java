@@ -1,9 +1,10 @@
 public class Main {
     public static void main(String[] args) {
-        while (Tower.healthPoint!=0) {
+        while (Tower.healthPoint>0) {
             Tower.displayTower();
             wait(2);
         }
+        System.out.println("Game Over");
     }
     private static void wait(int second){
         try{

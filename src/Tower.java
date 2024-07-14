@@ -7,8 +7,8 @@ public class Tower {
     public static void displayTower() {
         EnemyManager enemyManager=new EnemyManager();
         RandomRespawn.respawn();
-        enemyManager.move();
         locateTower();
+        enemyManager.attack();
         System.out.printf("""
                    %s     %s     %s     %s     %s
                    %s     %s     %s     %s     %s
@@ -39,6 +39,7 @@ public class Tower {
         int length=(healthPoint+"").length();
         System.out.println(" ".repeat(Math.max(0, 15-length/2))+healthPoint
                            +" ".repeat(Math.max(0, 15-length/2+(length%2==0?1:0)))+"\n\n");
+        enemyManager.move();
     }
     private static void locateTower(){
         for (int i = 0; i < 15; i++) {
@@ -46,7 +47,7 @@ public class Tower {
                 if (enemies[i][j]!=null) {
                     tower[i*5+j] = enemies[i][j].getImg();
                 }else{
-                    tower[i*5+1]=" ";
+                    tower[i*5+j]=" ";
                 }
             }
         }
