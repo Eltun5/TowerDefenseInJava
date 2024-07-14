@@ -8,13 +8,13 @@ public class TowerDefender {
 
     public TowerDefender() {
         if(aliveTypes==AliveTypes.KNIGHT) {
-            setImg("■");
+            setImg(" \uD83D\uDD35");
         }
         else if(aliveTypes==AliveTypes.WIZARD) {
-            setImg("◆");
+            setImg(" \uD83C\uDF00");
         }
         else {
-            setImg("▲");
+            setImg(" \uD83E\uDD68");
         }
     }
 
