@@ -1,24 +1,34 @@
 public class Enemy {
 
-    private AliveTypes aliveTypes;
-    private int speed;
-    private int Hp;
-    private double AttackDamage;
-    private int bulletSpeed;
+    private AliveTypes aliveTypes=AliveTypes.KNIGHT;
+    private int speed=50;
+    private int Hp=100;
+    private double AttackDamage=20;
+    private int bulletSpeed=50;
     private String img;
 
     public Enemy() {
-        if(aliveTypes==AliveTypes.KNIGHT) {
-            setImg("■");
-        }
-        else if(aliveTypes==AliveTypes.WIZARD) {
-            setImg("◆");
-        }
-        else {
-            setImg("▲");
-        }
+      Img();
     }
 
+    public Enemy(int speed, int hp, double attackDamage, int bulletSpeed) {
+        this.speed = speed;
+        Hp = hp;
+        AttackDamage = attackDamage;
+        this.bulletSpeed = bulletSpeed;
+        Img();
+    }
+public void  Img() {
+    if(aliveTypes==AliveTypes.KNIGHT) {
+        setImg("■");
+    }
+    else if(aliveTypes==AliveTypes.WIZARD) {
+        setImg("◆");
+    }
+    else {
+        setImg("▲");
+    }
+}
     public AliveTypes getAliveTypes() {
         return aliveTypes;
     }
