@@ -1,5 +1,4 @@
 public class Enemy {
-
     private AliveTypes aliveTypes=AliveTypes.KNIGHT;
     private int speed=50;
     private int Hp=100;
@@ -8,9 +7,9 @@ public class Enemy {
     private String img="c ";
 
     public Enemy() {
-      Img();
+        Img();;
     }
-
+    
     public Enemy(int speed, int hp, double attackDamage) {
         this.speed = speed;
         Hp = hp;
@@ -27,8 +26,7 @@ public void  Img() {
     else {
         setImg("▲");
     }
-}
-    public AliveTypes getAliveTypes() {
+} public AliveTypes getAliveTypes() {
         return aliveTypes;
     }
 
@@ -65,7 +63,7 @@ public void  Img() {
     }
 
     public void setAttackDamage(double attackDamage) {
-        this.attackDamage = attackDamage;
+        attackDamage = attackDamage;
     }
 
     public int getBulletSpeed() {
