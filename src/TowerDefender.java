@@ -1,18 +1,19 @@
-public class TowerDefender {
-
-    private AliveTypes aliveTypes = AliveTypes.ARCHER;
+public class TowerDefender implements NPC {
+    private final AliveTypes aliveTypes = AliveTypes.ARCHER;
     private int attackSpeed = 1;
     private double attackDamage = 10;
     private String img;
     private int level = 1;
-
     public TowerDefender() {
+        setImg();
+    }
+    public void setImg(){
         if (aliveTypes == AliveTypes.KNIGHT) {
-            setImg("⚝");
+            this.img="⚝";
         } else if (aliveTypes == AliveTypes.WIZARD) {
-            setImg("★");
+            this.img="★";
         } else {
-            setImg("✡");
+            this.img="✡";
         }
     }
 
@@ -28,23 +29,14 @@ public class TowerDefender {
         return aliveTypes;
     }
 
-    public void setAliveTypes(AliveTypes aliveTypes) {
-        this.aliveTypes = aliveTypes;
-    }
-
     public String getImg() {
         return img;
     }
-
-    public void setImg(String img) {
-        this.img = img;
-    }
-
     public int getSpeed() {
         return attackSpeed;
     }
 
-    public void setSpeed(int speed) {
+    public void setSpeed(int attackSpeed) {
         this.attackSpeed = attackSpeed;
     }
 
@@ -55,5 +47,4 @@ public class TowerDefender {
     public void setAttackDamage(double attackDamage) {
         this.attackDamage = attackDamage;
     }
-
 }

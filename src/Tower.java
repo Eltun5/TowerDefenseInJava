@@ -43,11 +43,17 @@ public class Tower {
     private static void locateTower(){
         for (int i = 0; i < 15; i++) {
             for (int j = 0; j < 5; j++) {
-                if (enemies[i][j]!=null) {
-                    tower[i*5+j] = enemies[i][j].getImg();
-                }else{
+                if (BulletManager.bullets[i][j]!=null) {
+                    tower[i*5+j] = BulletManager.bullets[i][j].img();
+                }else if(enemies[i][j]==null){
                     tower[i*5+j]=" ";
                 }
+                if (enemies[i][j]!=null) {
+                    tower[i*5+j] = enemies[i][j].getImg();
+                }else if(BulletManager.bullets[i][j]==null){
+                    tower[i*5+j]=" ";
+                }
+
             }
         }
         for (int i = 0; i < 5; i+=2) {

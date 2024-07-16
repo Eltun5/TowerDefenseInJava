@@ -1,76 +1,52 @@
-public class Enemy {
-    private AliveTypes aliveTypes=AliveTypes.KNIGHT;
-    private int speed=50;
-    private int Hp=100;
-    private double attackDamage=20;
-    private int bulletSpeed=50;
-    private String img="c ";
+public class Enemy implements NPC{
+    private final AliveTypes aliveTypes = AliveTypes.KNIGHT;
+    private int speed = 50;
+    private double hp = 10;
+    private double attackDamage = 20;
+    private String img = "c ";
 
     public Enemy() {
-        Img();;
-    }
-    
-    public Enemy(int speed, int hp, double attackDamage) {
-        this.speed = speed;
-        Hp = hp;
-        this.attackDamage = attackDamage;
-        Img();
-    }
-public void  Img() {
-    if(aliveTypes==AliveTypes.KNIGHT) {
-        setImg("■");
-    }
-    else if(aliveTypes==AliveTypes.WIZARD) {
-        setImg("◆");
-    }
-    else {
-        setImg("▲");
-    }
-} public AliveTypes getAliveTypes() {
-        return aliveTypes;
+        setImg();
     }
 
-    public void setAliveTypes(AliveTypes aliveTypes) {
-        this.aliveTypes = aliveTypes;
+    public Enemy(int speed, int hp, double attackDamage) {
+        this.speed = speed;
+        this.hp = hp;
+        this.attackDamage = attackDamage;
+        setImg();
+    }
+
+    public void setImg() {
+        if (aliveTypes == AliveTypes.KNIGHT) {
+            this.img = "■";
+        } else if (aliveTypes == AliveTypes.WIZARD) {
+            this.img = "◆";
+        } else {
+            this.img = "▲";
+        }
+    }
+
+    public AliveTypes getAliveTypes() {
+        return aliveTypes;
     }
 
     public String getImg() {
         return img;
     }
 
-    public void setImg(String img) {
-        this.img = img;
-    }
-
     public int getSpeed() {
         return speed;
     }
 
-    public void setSpeed(int speed) {
-        this.speed = speed;
+    public double getHp() {
+        return hp;
     }
 
-    public int getHp() {
-        return Hp;
-    }
-
-    public void setHp(int hp) {
-        Hp = hp;
+    public void setHp(double hp) {
+        this.hp = hp;
     }
 
     public double getAttackDamage() {
         return attackDamage;
-    }
-
-    public void setAttackDamage(double attackDamage) {
-        attackDamage = attackDamage;
-    }
-
-    public int getBulletSpeed() {
-        return bulletSpeed;
-    }
-
-    public void setBulletSpeed(int bulletSpeed) {
-        this.bulletSpeed = bulletSpeed;
     }
 }
