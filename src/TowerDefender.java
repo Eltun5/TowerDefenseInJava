@@ -5,6 +5,7 @@ public class TowerDefender {
     private double attackDamage=10;
     private String img;
 private int level=1;
+private Bullet bullet;
     public TowerDefender() {
         if(aliveTypes==AliveTypes.KNIGHT) {
             setImg("\uD83D\uDD35");
@@ -13,8 +14,13 @@ private int level=1;
             setImg("\uD83C\uDF00");
         }
         else {
-            setImg("\uD83E\uDD68");
+            setImg("▵");
+            bullet=new Bullet(1,10,"⤉");
         }
+    }
+
+    public Bullet getBullet() {
+        return bullet;
     }
 
     public int getLevel() {

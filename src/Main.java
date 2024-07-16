@@ -2,10 +2,13 @@ public class Main {
     public static void main(String[] args) {
         TowerDefender towerDefender=new TowerDefender();
 Tower.defenders[0][0]=towerDefender;
+BulletManager bulletManager=new BulletManager();
 
     while (Tower.healthPoint>0) {
             Tower.displayTower();
-            wait(2);
+        bulletManager.attack();
+
+        wait(2);
         }
         System.out.println("Game Over");
     }
@@ -16,4 +19,5 @@ Tower.defenders[0][0]=towerDefender;
             throw new RuntimeException(e);
         }
     }
+
 }
