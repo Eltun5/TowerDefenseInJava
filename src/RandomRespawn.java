@@ -20,8 +20,8 @@ public class RandomRespawn {
         for(int i=0;i<random.nextInt(2);i++) {
             int row,column;
             do{
-                row=random.nextInt(4);
-                column=random.nextInt(4);
+                row=random.nextInt(2);
+                column=random.nextInt(5);
 
             }while (Tower.defender2048[row][column]!=null);
         Tower.defender2048[row][column]=new TowerDefender();
