@@ -7,8 +7,6 @@ public class UserManageDefenders {
     static void moveDefenders() {
         RandomRespawn.randomUser();
         input();
-        Random random=new Random();
-        int row=0,column=0;
         switch (c) {
             case 'w' -> {
                 for(int i=0;i<Tower.defender2048.length-1;i++) {
@@ -26,13 +24,48 @@ public class UserManageDefenders {
 
             }
             case 'a' -> {
-                if(column-1>0) {
-
+                for(int i=0;i<Tower.defender2048.length-1;i++) {
+                    for(int j=1;j<Tower.defender2048.length-1;j++) {
+                        if( Tower.defender2048[i][j]!=null && Tower.defender2048[i][j-1]!=null  &&
+                                Tower.defender2048[i][j-1].getLevel()==Tower.defender2048[i][j].getLevel()) {
+                            Tower.defender2048[i][j]=null;
+                            Tower.defender2048[i][j-1].setLevel(Tower.defender2048[i][j-1].getLevel()+1);
+                        }
+                        if (Tower.defender2048[i][j-1]==null && Tower.defender2048[i][j]!=null) {
+                            Tower.defender2048[i][j-1]=Tower.defender2048[i][j];
+                            Tower.defender2048[i][j]=null;
+                        }
+                    }
                 }
             }
             case 's' -> {
+                for(int i=1;i<Tower.defender2048.length-1;i++) {
+                    for(int j=0;j<Tower.defender2048.length-1;j++) {
+                        if( Tower.defender2048[i][j]!=null && Tower.defender2048[i-1][j]!=null  &&
+                                Tower.defender2048[i-1][j].getLevel()==Tower.defender2048[i][j].getLevel()) {
+                            Tower.defender2048[i][j]=null;
+                            Tower.defender2048[i-1][j].setLevel(Tower.defender2048[i-1][j].getLevel()+1);
+                        }
+                        if (Tower.defender2048[i-1][j]==null && Tower.defender2048[i][j]!=null) {
+                            Tower.defender2048[i-1][j]=Tower.defender2048[i][j];
+                            Tower.defender2048[i][j]=null;
+                        }
+                    }
+                }
             }
             case 'd' -> {
+                for(int i=0;i<Tower.defender2048.length-1;i++) {
+                    for(int j=0;j<Tower.defender2048.length-1;j++) {
+                        if( Tower.defender2048[i][j]!=null && Tower.defender2048[i+1][j]!=null  &&Tower.defender2048[i][j+1].getLevel()==Tower.defender2048[i][j].getLevel()) {
+                            Tower.defender2048[i][j]=null;
+                            Tower.defender2048[i][j+1].setLevel(Tower.defender2048[i][j+1].getLevel()+1);
+                        }
+                        if (Tower.defender2048[i][j+1]==null && Tower.defender2048[i][j]!=null) {
+                            Tower.defender2048[i][j+1]=Tower.defender2048[i][j];
+                            Tower.defender2048[i][j]=null;
+                        }
+                    }
+                }
             }
         }
     }
