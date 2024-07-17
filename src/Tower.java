@@ -3,6 +3,7 @@ public class Tower {
     static Enemy[][] enemies=new Enemy[15][5];
     static TowerDefender[][] defenders=new TowerDefender[3][5];
     static String[] tower=new String[105];
+    static TowerDefender[][] userGraph=new TowerDefender[4][4];
     public static void displayTower() {
         EnemyManager enemyManager=new EnemyManager();
         RandomRespawn.respawn();
