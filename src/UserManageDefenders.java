@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class UserManageDefenders {
     static Scanner sr = new Scanner(System.in);
     static char c;
-
     static void moveDefenders() {
         input();
         switch (c) {

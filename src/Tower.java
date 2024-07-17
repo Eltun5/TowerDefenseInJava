@@ -2,7 +2,8 @@ public class Tower {
      static double healthPoint=100;
     static Enemy[][] enemies=new Enemy[15][5];
     static TowerDefender[][] defenders=new TowerDefender[3][5];
-    static String[] tower=new String[105];
+    static String[] tower=new String[117];
+    static TowerDefender[][] userGraph=new TowerDefender[4][4];
     public static void displayTower() {
         EnemyManager enemyManager=new EnemyManager();
         RandomRespawn.respawn();
@@ -15,25 +16,19 @@ public class Tower {
                    %s     %s     %s     %s     %s
                    %s     %s     %s     %s     %s
                    %s     %s     %s     %s     %s
-                   %s     %s     %s     %s     %s
-                   %s     %s     %s     %s     %s
-                   %s     %s     %s     %s     %s
-                   %s     %s     %s     %s     %s
-                   %s     %s     %s     %s     %s
-                   %s     %s     %s     %s     %s
-                   %s     %s     %s     %s     %s
-                   %s     %s     %s     %s     %s
-                   %s     %s     %s     %s     %s
-                _______________________________
-                |%s|%s|%s|%s|%s|
-                |  %s  |  %s  |  %s  |  %s  |  %s  |
-                |_____|_____|_____|_____|_____|
-                |%s|%s|%s|%s|%s|
-                |  %s  |  %s  |  %s  |  %s  |  %s  |
-                |_____|_____|_____|_____|_____|
-                |%s|%s|%s|%s|%s|
-                |  %s  |  %s  |  %s  |  %s  |  %s  |
-                |_____|_____|_____|_____|_____|
+                   %s     %s     %s     %s     %s             _________________________
+                   %s     %s     %s     %s     %s             |     |     |     |     |
+                   %s     %s     %s     %s     %s             |     |     |     |     |
+                   %s     %s     %s     %s     %s             |_____|_____|_____|_____|
+                   %s     %s     %s     %s     %s             |     |     |     |     |
+                   %s     %s     %s     %s     %s             |     |     |     |     |
+                   %s     %s     %s     %s     %s             |_____|_____|_____|_____|
+                   %s     %s     %s     %s     %s             |     |     |     |     |
+                   %s     %s     %s     %s     %s             |     |     |     |     |
+                _______________________________          |_____|_____|_____|_____|
+                |%s|%s|%s|%s|%s|          |     |     |     |     |
+                |  %s  |  %s  |  %s  |  %s  |  %s  |          |     |     |     |     |
+                |_____|_____|_____|_____|_____|          |_____|_____|_____|_____|
                 """, (Object[]) tower);
         int length=(healthPoint+"").length();
         System.out.println(" ".repeat(Math.max(0, 15-length/2))+(healthPoint<0?0:healthPoint)
@@ -41,10 +36,12 @@ public class Tower {
         enemyManager.move();
     }
     private static void locateTower(){
+        int count=0;
         for (int i = 0; i < 15; i++) {
             for (int j = 0; j < 5; j++) {
                 if (BulletManager.bullets[i][j]!=null) {
                     tower[i*5+j] = BulletManager.bullets[i][j].img();
+                    count++;
                 }else if(enemies[i][j]==null){
                     tower[i*5+j]=" ";
                 }
@@ -53,8 +50,11 @@ public class Tower {
                 }else if(BulletManager.bullets[i][j]==null){
                     tower[i*5+j]=" ";
                 }
-
             }
+            if (count==5){
+                tower[i*5+4] = BulletManager.bullets[i][4].img()+" ";
+            }
+            count=0;
         }
         for (int i = 0; i < 5; i+=2) {
             for (int j = 0; j < 5; j++) {
