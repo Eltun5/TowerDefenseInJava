@@ -18,7 +18,7 @@ public class UserManageDefenders {
                        Tower.defender2048[i+1][j].setLevel(Tower.defender2048[i+1][j].getLevel()+1);
                        }
                        if (Tower.defender2048[i+1][j]==null && Tower.defender2048[i][j]!=null) {
-                           Tower.defender2048[i+1][j]=Tower.defenders[i][j];
+                           Tower.defender2048[i+1][j]=Tower.defender2048[i][j];
                            Tower.defender2048[i][j]=null;
                        }
                    }

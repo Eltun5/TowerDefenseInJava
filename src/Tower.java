@@ -1,7 +1,7 @@
 public class Tower {
     static double healthPoint = 100;
     static Enemy[][] enemies = new Enemy[15][5];
-    static TowerDefender[]defenders = new TowerDefender[5];
+    static TowerDefender[] defenders = new TowerDefender[5];
     static String[] tower = new String[117];
     static TowerDefender[][] defender2048 = new TowerDefender[4][4];
 
@@ -11,26 +11,26 @@ public class Tower {
         locateTower();
         enemyManager.attack();
         System.out.printf("""
-                   %s     %s     %s     %s     %s
-                   %s     %s     %s     %s     %s
-                   %s     %s     %s     %s     %s
-                   %s     %s     %s     %s     %s
-                   %s     %s     %s     %s     %s
-                   %s     %s     %s     %s     %s
-                   %s     %s     %s     %s     %s             _________________________
-                   %s     %s     %s     %s     %s             | %s  |  %s  |  %s |  %s|
-                   %s     %s     %s     %s     %s             | %s   |  %s   |     |     |
-                   %s     %s     %s     %s     %s             |_____|_____|_____|_____|
-                   %s     %s     %s     %s     %s             |     |     |     |     |
-                   %s     %s     %s     %s     %s             |     |     |     |     |
-                   %s     %s     %s     %s     %s             |_____|_____|_____|_____|
-                   %s     %s     %s     %s     %s             |     |     |     |     |
-                   %s     %s     %s     %s     %s             |     |     |     |     |
-                _______________________________          |_____|_____|_____|_____|
-                |%s|%s|%s|%s|%s|          |     |     |     |     |
-                |  %s  |  %s  |  %s  |  %s  |  %s  |          |     |     |     |     |
-                |_____|_____|_____|_____|_____|          |_____|_____|_____|_____|
-                """, (Object[]) tower);
+                                   %s     %s     %s     %s     %s
+                                   %s     %s     %s     %s     %s
+                                   %s     %s     %s     %s     %s
+                                   %s     %s     %s     %s     %s
+                                   %s     %s     %s     %s     %s
+                                   %s     %s     %s     %s     %s
+                                   %s     %s     %s     %s     %s             _________________________
+                                   %s     %s     %s     %s     %s             |%s|%s|%s|%s|
+                                   %s     %s     %s     %s     %s             |  %s  |  %s  |  %s  |  %s  |
+                                   %s     %s     %s     %s     %s             |_____|_____|_____|_____|
+                                   %s     %s     %s     %s     %s             |%s|%s|%s|%s|
+                                   %s     %s     %s     %s     %s             |  %s  |  %s  |  %s  |  %s  |
+                                   %s     %s     %s     %s     %s             |_____|_____|_____|_____|
+                                   %s     %s     %s     %s     %s             |%s|%s|%s|%s|
+                                   %s     %s     %s     %s     %s             |  %s  |  %s  |  %s  |  %s  |
+                                _______________________________          |_____|_____|_____|_____|
+                                |%s|%s|%s|%s|%s|          |%s|%s|%s|%s|
+                                |  %s  |  %s  |  %s  |  %s  |  %s  |          |  %s  |  %s  |  %s  |  %s  |
+                                |_____|_____|_____|_____|_____|          |_____|_____|_____|_____|
+                                """, (Object[]) tower);
         int length = (healthPoint + "").length();
         System.out.println(" ".repeat(Math.max(0, 15 - length / 2)) + (healthPoint < 0 ? 0 : healthPoint)
                 + " ".repeat(Math.max(0, 15 - length / 2 + (length % 2 == 0 ? 1 : 0))));
@@ -65,34 +65,34 @@ public class Tower {
                             defenderIndexCounter++;
                             if (defender2048[defenderIndexCounter / 8][k] != null) {
                                 int length = (defender2048[defenderIndexCounter / 8][k].getLevel() + "").length();
-                                tower[(i* 5 + j)+defenderIndexCounter] = " ".repeat(2 - length / 2) + defender2048[defenderIndexCounter / 8][k].getLevel() +
+                                tower[(i * 5 + j) + defenderIndexCounter] = " ".repeat(2 - length / 2) + defender2048[defenderIndexCounter / 8][k].getLevel() +
                                         " ".repeat(2 - length / 2 + (length % 2 == 0 ? 1 : 0));
                             } else {
-                                tower[(i* 5 + j)+defenderIndexCounter] = "     ";
+                                tower[(i * 5 + j) + defenderIndexCounter] = "     ";
                             }
                         }
                         enemyCounter = 0;
-                    }
-                   else if(enemyCounter<8) {
+                    } else if (defenderCounter < 8 && defenderIndexCounter<28) {
                         for (int k = 0; k < 4; k++) {
                             defenderCounter++;
                             defenderIndexCounter++;
-                            if (defender2048[defenderIndexCounter/8][k] != null) {
-                                tower[(i* 5 + j)+defenderIndexCounter] = defender2048[defenderIndexCounter/8][k].getImg();
+                            if (defender2048[defenderIndexCounter / 8][k] != null) {
+                                tower[(i * 5 + j) + defenderIndexCounter] = defender2048[defenderIndexCounter / 8][k].getImg();
                             } else {
-                                tower[(i* 5 + j)+defenderIndexCounter] = " ";
+                                tower[(i * 5 + j) + defenderIndexCounter] = " ";
                             }
+                            System.out.println(defenderCounter);
                         }
                         enemyCounter = 0;
                     }
-                    if ((enemyCounter <= 5) || (enemyCounter<=10 && defenderCounter==8)) {
+                    if ((enemyCounter <= 5) || (enemyCounter <= 10 && defenderCounter == 8)) {
                         if (enemies[i][j] != null) {
-                            tower[i * 5 + j+defenderIndexCounter] = enemies[i][j].getImg();
+                            tower[i * 5 + j + defenderIndexCounter] = enemies[i][j].getImg();
                         } else if (BulletManager.bullets[i][j] == null) {
-                            tower[i * 5 + j+defenderIndexCounter] = " ";
+                            tower[i * 5 + j + defenderIndexCounter] = " ";
                         }
-                        if(enemyCounter==10) {
-                            defenderCounter=0;
+                        if (enemyCounter == 10) {
+                            defenderCounter = 0;
                         }
                         enemyCounter++;
                     }
@@ -104,16 +104,16 @@ public class Tower {
             }
             count = 0;
         }
-            for (int j = 0; j < 5; j++) {
-                if (defenders[j] != null) {
-                    int length = (defenders[j].getLevel() + "").length();
-                    tower[(15 * 5) +8* 3 + j] = " ".repeat(2 - length / 2) + defenders[j].getLevel() +
-                            " ".repeat(2 - length / 2 + (length % 2 == 0 ? 1 : 0));
-                    tower[(15 * 5) +8* 3 + j] = defenders[j].getImg();
-                } else {
-                    tower[(15 * 5) +8* 3 + j] = "     ";
-                    tower[(15 * 5) +8* 3 + j] = " ";
-                }
+        for (int j = 0; j < 5; j++) {
+            if (defenders[j] != null) {
+                int length = (defenders[j].getLevel() + "").length();
+                tower[(15 * 5) + 8 * 3 + j] = " ".repeat(2 - length / 2) + defenders[j].getLevel() +
+                        " ".repeat(2 - length / 2 + (length % 2 == 0 ? 1 : 0));
+                tower[(15 * 5) + 8 * 3 + j] = defenders[j].getImg();
+            } else {
+                tower[(15 * 5) + 8 * 3 + j] = "     ";
+                tower[(15 * 5) + 8 * 3 + j] = " ";
+            }
         }
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
