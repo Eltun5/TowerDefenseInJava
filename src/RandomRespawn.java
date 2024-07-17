@@ -10,19 +10,21 @@ public class RandomRespawn {
             int hp= (int) (Math.random() * rate) + 100;
             Tower.enemies[0][a]=new Enemy(1,hp,20);
         }
-        Random random = new Random();
-        for(int i=0;i<random.nextInt(4);i++) {
-            int row,column;
-            do{
-row=random.nextInt(4);
-                column=random.nextInt(4);
-
-
-            }while (Tower.userGraph[row][column]!=null);
-        }
         callTime++;
         if (callTime%10==0){
             rate+=(int)(Math.random()*eachMonsterLevel);
+        }
+    }
+    static void randomUser() {
+        Random random = new Random();
+        for(int i=0;i<random.nextInt(2);i++) {
+            int row,column;
+            do{
+                row=random.nextInt(4);
+                column=random.nextInt(4);
+
+            }while (Tower.defender2048[row][column]!=null);
+        Tower.defender2048[row][column]=new TowerDefender();
         }
     }
 }

@@ -1,6 +1,5 @@
 public class BulletManager implements BulletService {
     static Bullet[][] bullets = new Bullet[15][5];
-
     @Override
     public void attack() {
         move();
@@ -15,23 +14,6 @@ public class BulletManager implements BulletService {
 
     @Override
     public void move() {
-//        for (int i = 0; i < Tower.enemies.length; i++) {
-//            for (int j = 0; j < Tower.enemies[i].length; j++) {
-//                if (Tower.enemies[i][j] != null) {
-//                    for (int k = 0; k < Tower.defenders[0].length; k++) {
-//                        if (Tower.defenders[0][k]!= null && Tower.defenders[0][k].getAliveTypes() == AliveTypes.ARCHER) {
-//                            double damage = Tower.defenders[0][k].getAttackDamage() + bullet.bulletDamage() -
-//                                    Tower.enemies[i][j].getHp();
-//                            if (damage > 0) {
-//                                Tower.enemies[i][j] = null;
-//                            } else {
-//                                Tower.enemies[i][j].setAttackDamage(damage);
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//        }
         for (int i = 1; i < bullets.length ; i++) {
             for (int j = 0; j < bullets[i].length; j++) {
                 if (bullets[i][j] != null && Tower.enemies[i - 1][j] != null) {
@@ -40,7 +22,9 @@ public class BulletManager implements BulletService {
                         Tower.enemies[i - 1][j]=null;
                     }
                     bullets[i][j]=null;
-                } else if (bullets[i][j] != null && Tower.enemies[i][j] != null) {
+                    continue;
+                }
+                if (bullets[i][j] != null && Tower.enemies[i][j] != null) {
                     Tower.enemies[i][j].setHp(Tower.enemies[i][j].getHp() - bullets[i][j].bulletDamage());
                     if (Tower.enemies[i][j].getHp()<=0){
                         Tower.enemies[i][j]=null;
