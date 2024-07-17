@@ -3,11 +3,11 @@ public class BulletManager implements BulletService {
     @Override
     public void attack() {
         move();
-        for (int j = 0; j < Tower.defenders[0].length; j++) {
-            if (Tower.defenders[0][j] != null &&
-                Tower.defenders[0][j].getAliveTypes() == AliveTypes.ARCHER) {
+        for (int j = 0; j < Tower.defenders2048[0].length; j++) {
+            if (Tower.defenders2048[0][j] != null &&
+                Tower.defenders2048[0][j].getAliveTypes() == AliveTypes.ARCHER) {
                 bullets[14][j] = new Bullet(1,
-                        Tower.defenders[0][j].getAttackDamage() + 10, "⤉");
+                        Tower.defenders2048[0][j].getAttackDamage() + 10, "⤉");
             }
         }
     }

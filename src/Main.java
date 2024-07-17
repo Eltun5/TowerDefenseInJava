@@ -1,11 +1,11 @@
 public class Main {
     public static void main(String[] args) {
         TowerDefender towerDefender = new TowerDefender();
-        Tower.defenders[0][0] = towerDefender;
-        Tower.defenders[0][1] =towerDefender;
-        Tower.defenders[0][2] =towerDefender;
-        Tower.defenders[0][3] =towerDefender;
-        Tower.defenders[0][4] =towerDefender;
+        Tower.defenders2048[0][0] = towerDefender;
+        Tower.defenders2048[0][1] =towerDefender;
+        Tower.defenders2048[0][2] =towerDefender;
+        Tower.defenders2048[0][3] =towerDefender;
+        Tower.defenders2048[0][4] =towerDefender;
 
         BulletManager bulletManager = new BulletManager();
 
