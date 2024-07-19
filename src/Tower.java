@@ -4,7 +4,6 @@ public class Tower {
     static TowerDefender[] defenders = new TowerDefender[5];
     static String[] tower = new String[117];
     static TowerDefender[][] defender2048 = new TowerDefender[2][5];
-
     public static void displayTower() {
         EnemyManager enemyManager = new EnemyManager();
         RandomRespawn.respawn();
@@ -43,7 +42,6 @@ public class Tower {
         enemyManager.move();
         UserManageDefenders.moveDefenders();
     }
-
     private static void locateTower() {
         for (int i = 0; i < 15; i++) {
             for (int j = 0; j < 5; j++) {

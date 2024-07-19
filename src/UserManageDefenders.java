@@ -1,4 +1,3 @@
-import java.util.Random;
 import java.util.Scanner;
 
 public class UserManageDefenders {
@@ -9,9 +8,10 @@ public class UserManageDefenders {
         input();
         switch (c) {
             case 'w' -> {
-                for(int i=0;i<Tower.defender2048.length-1;i++) {
-                   for(int j=0;j<Tower.defender2048.length-1;j++) {
-                       if( Tower.defender2048[i][j]!=null && Tower.defender2048[i+1][j]!=null  &&Tower.defender2048[i+1][j].getLevel()==Tower.defender2048[i][j].getLevel()) {
+                for(int i=1;i<Tower.defender2048.length-1;i++) {
+                   for(int j=0;j<Tower.defender2048[i].length-1;j++) {
+                       if( Tower.defender2048[i][j]!=null && Tower.defender2048[i+1][j]!=null
+                           &&Tower.defender2048[i+1][j].getLevel()==Tower.defender2048[i][j].getLevel()) {
                            Tower.defender2048[i][j]=null;
                        Tower.defender2048[i+1][j].setLevel(Tower.defender2048[i+1][j].getLevel()+1);
                        }
