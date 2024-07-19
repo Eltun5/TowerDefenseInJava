@@ -6,7 +6,8 @@ public class Tower {
     static TowerDefender[][] defender2048 = new TowerDefender[2][5];
     public static void displayTower() {
         EnemyManager enemyManager = new EnemyManager();
-        RandomRespawn.respawn();
+        RandomRespawn.respawnEnemy();
+        RandomRespawn.respawnDefender();
         locateTower();
         enemyManager.attack();
         System.out.printf("""
@@ -41,6 +42,8 @@ public class Tower {
                 + " ".repeat(Math.max(0, 15 - length / 2 + (length % 2 == 0 ? 1 : 0))));
         enemyManager.move();
         UserManageDefenders.moveDefenders();
+        UpgradeMainDefenders.upgrade();
+        UpgradeMainDefenders.dynamicChange();
     }
     private static void locateTower() {
         for (int i = 0; i < 15; i++) {
@@ -55,7 +58,6 @@ public class Tower {
                 }else if(BulletManager.bullets[i][j]==null){
                     tower[i*5+j]=" ";
                 }
-
             }
         }
         for (int j = 0; j < 5; j++) {

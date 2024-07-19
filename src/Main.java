@@ -1,12 +1,10 @@
 public class Main {
     public static void main(String[] args) {
-        TowerDefender towerDefender = new TowerDefender();
-        Tower.defenders[0] = towerDefender;
-        Tower.defenders[1] =towerDefender;
-        Tower.defenders[2] =towerDefender;
-        Tower.defenders[3] =towerDefender;
-        Tower.defenders[4] =towerDefender;
-
+        Tower.defenders[0] =new TowerDefender();
+        Tower.defenders[1] =new TowerDefender();
+        Tower.defenders[2] =new TowerDefender();
+        Tower.defenders[3] =new TowerDefender();
+        Tower.defenders[4] =new TowerDefender();
         BulletManager bulletManager = new BulletManager();
 
         while (Tower.healthPoint > 0) {

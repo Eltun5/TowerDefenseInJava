@@ -23,6 +23,7 @@ public class TowerDefender implements NPC {
 
     public void setLevel(int level) {
         this.level = level;
+        setAttackDamage(getAttackDamage()+getAttackDamage()/2);
     }
 
     public AliveTypes getAliveTypes() {
